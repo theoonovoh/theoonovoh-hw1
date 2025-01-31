@@ -112,46 +112,46 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
---DROP TABLE IF EXISTS roles;
---DROP TABLE IF EXISTS actors;
---DROP TABLE IF EXISTS movies;
---DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS studios;
 
 
 -- Create new tables, according to your domain model
 -- TODO!
 
 -- Create studios table
---CREATE TABLE studios (
-  --  id INTEGER PRIMARY KEY AUTOINCREMENT,
-    --name TEXT NOT NULL
---);
+CREATE TABLE studios (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT NOT NULL
+);
 
 -- Create movies table
---CREATE TABLE movies (
-  --  id INTEGER PRIMARY KEY AUTOINCREMENT,
-    --title TEXT NOT NULL,
-    --year_released INTEGER NOT NULL,
-    --mpaa_rating TEXT NOT NULL,
-    --studio_id INTEGER,
-    --FOREIGN KEY (studio_id) REFERENCES studios(id)
---);
+CREATE TABLE movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+title TEXT NOT NULL,
+year_released INTEGER NOT NULL,
+mpaa_rating TEXT NOT NULL,
+studio_id INTEGER,
+FOREIGN KEY (studio_id) REFERENCES studios(id)
+);
 
 -- Create actors table
---CREATE TABLE actors (
-  --  id INTEGER PRIMARY KEY AUTOINCREMENT,
-    --name TEXT NOT NULL
---);
+CREATE TABLE actors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT NOT NULL
+);
 
 -- Create roles table
---CREATE TABLE roles (
-  --  id INTEGER PRIMARY KEY AUTOINCREMENT,
-    --movie_id INTEGER,
-    --actor_id INTEGER,
-    --character_name TEXT NOT NULL,
-    --FOREIGN KEY (movie_id) REFERENCES movies(id),
-    --FOREIGN KEY (actor_id) REFERENCES actors(id)
---);
+CREATE TABLE roles (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+movie_id INTEGER,
+actor_id INTEGER,
+character_name TEXT NOT NULL,
+FOREIGN KEY (movie_id) REFERENCES movies(id),
+FOREIGN KEY (actor_id) REFERENCES actors(id)
+);
 
 
 -- Insert data into your database that reflects the sample data shown above
@@ -162,42 +162,42 @@
 INSERT INTO studios (id, name) VALUES (1, 'Warner Bros.');
 
 -- Step 2: Insert Movies
---INSERT INTO movies (id, title, year_released, mpaa_rating, studio_id) VALUES 
---(1, 'Batman Begins', 2005, 'PG-13', 1),
---(2, 'The Dark Knight', 2008, 'PG-13', 1),
---(3, 'The Dark Knight Rises', 2012, 'PG-13', 1);
+INSERT INTO movies (id, title, year_released, mpaa_rating, studio_id) VALUES 
+(1, 'Batman Begins', 2005, 'PG-13', 1),
+(2, 'The Dark Knight', 2008, 'PG-13', 1),
+(3, 'The Dark Knight Rises', 2012, 'PG-13', 1);
 
 -- Step 3: Insert Actors
---INSERT INTO actors (id, name) VALUES 
---(1, 'Christian Bale'),
---(2, 'Michael Caine'),
---(3, 'Liam Neeson'),
---(4, 'Katie Holmes'),
---(5, 'Gary Oldman'),
---(6, 'Heath Ledger'),
---(7, 'Aaron Eckhart'),
---(8, 'Maggie Gyllenhaal'),
---(9, 'Tom Hardy'),
---(10, 'Joseph Gordon-Levitt'),
---(11, 'Anne Hathaway');
+INSERT INTO actors (id, name) VALUES 
+(1, 'Christian Bale'),
+(2, 'Michael Caine'),
+(3, 'Liam Neeson'),
+(4, 'Katie Holmes'),
+(5, 'Gary Oldman'),
+(6, 'Heath Ledger'),
+(7, 'Aaron Eckhart'),
+(8, 'Maggie Gyllenhaal'),
+(9, 'Tom Hardy'),
+(10, 'Joseph Gordon-Levitt'),
+(11, 'Anne Hathaway');
 
 -- Step 4: Insert Roles
---INSERT INTO roles (movie_id, actor_id, character_name) VALUES
---(1, 1, 'Bruce Wayne'),
---(1, 2, 'Alfred'),
---(1, 3, 'Ra''s Al Ghul'),
---(1, 4, 'Rachel Dawes'),
---(1, 5, 'Commissioner Gordon'),
---(2, 1, 'Bruce Wayne'),
---(2, 6, 'Joker'),
---(2, 7, 'Harvey Dent'),
---(2, 2, 'Alfred'),
---(2, 8, 'Rachel Dawes'),
---(3, 1, 'Bruce Wayne'),
---(3, 5, 'Commissioner Gordon'),
---(3, 9, 'Bane'),
---(3, 10, 'John Blake'),
---(3, 11, 'Selina Kyle');
+INSERT INTO roles (movie_id, actor_id, character_name) VALUES
+(1, 1, 'Bruce Wayne'),
+(1, 2, 'Alfred'),
+(1, 3, 'Ra''s Al Ghul'),
+(1, 4, 'Rachel Dawes'),
+(1, 5, 'Commissioner Gordon'),
+(2, 1, 'Bruce Wayne'),
+(2, 6, 'Joker'),
+(2, 7, 'Harvey Dent'),
+(2, 2, 'Alfred'),
+(2, 8, 'Rachel Dawes'),
+(3, 1, 'Bruce Wayne'),
+(3, 5, 'Commissioner Gordon'),
+(3, 9, 'Bane'),
+(3, 10, 'John Blake'),
+(3, 11, 'Selina Kyle');
 
 -- Prints a header for the movies output
 .print "Movies"
